@@ -1,0 +1,68 @@
+nmap <C-p> :Files<CR>                                                       
+nmap <C-k><C-b> :NERDTreeToggle<CR>                                         
+map gn :bn<cr>
+map gp :bp<cr>
+map gd :bd<cr>
+
+let g:javascript_plugin_flow = 1                                            
+let g:syntatic_check_on_open = 1                                            
+
+let g:ycm_add_preview_to_completeopt=0                                      
+let g:ycm_confirm_extra_confi=0                                             
+set completeopt-=preview                                                    
+
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS                   
+autocmd FileType scss set omnifunc=csscomplete#CompleteCSS                  
+
+"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+"autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+"autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+set completeopt=longest,menuone                                             
+
+
+let g:acp_enableAtStartup = 0                                               
+" Use neocomplete.                                                          
+let g:neocomplete#enable_at_startup = 1                                     
+" " Use smartcase.                                                          
+let g:neocomplete#enable_smart_case = 1 
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+let g:neocomplete#enable_auto_select = 1
+
+set mouse=a
+xnoremap p pgvy
+
+function! IPhpInsertUse()
+    call PhpInsertUse()
+    call feedkeys('a',  'n')
+endfunction
+autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
+autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+
+function! IPhpExpandClass()
+    call PhpExpandClass()
+    call feedkeys('a', 'n')
+endfunction
+autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
+autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
+
+let g:php_namespace_sort_after_insert = 1
+set tags+=tags,tags.vendors
+
+let g:autotagTagsFile=".tags"
+
+set tags=./tags,tags;$HOME
+set formatoptions-=cro
+
+" Allow JSX in normal JS files
+let g:jsx_ext_required = 0
+let g:syntastic_javascript_checkers = ['eslint']
+
+let g:ycm_add_preview_to_completeopt=0
+let g:ycm_confirm_extra_conf=0
+set completeopt-=preview
+
+" galooshi/vim-import-js config
+nmap <Leader>j :ImportJSWord<CR>
+nmap <Leader>i :ImportJSFix<CR>
