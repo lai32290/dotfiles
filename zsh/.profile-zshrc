@@ -2,3 +2,7 @@
 if [[ ! $TERM =~ screen ]]; then
     exec tmux
 fi
+
+# Alias
+alias f='find . -name '
+alias u='source ~/.zshrc'
