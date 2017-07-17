@@ -1,3 +1,4 @@
+# Set tmux to always open if it's installed
 if [[ ! $TERM =~ screen ]]; then
     exec tmux
 fi
