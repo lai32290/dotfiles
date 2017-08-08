@@ -4,6 +4,7 @@ nmap <Leader>w :call SessionManagerToggle()<CR>
 map gn :bn<cr>
 map gp :bp<cr>
 map gd :bd<cr>
+set relativenumber
 
 let g:javascript_plugin_flow = 1                                            
 let g:syntatic_check_on_open = 1                                            

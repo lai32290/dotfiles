@@ -2,7 +2,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'leshill/vim-json'
 Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/syntastic'
-" Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
