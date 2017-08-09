@@ -5,6 +5,9 @@ map gn :bn<cr>
 map gp :bp<cr>
 map gd :bd<cr>
 set relativenumber
+set tabstop=4
+set shiftwidth=4
+set expandtab
 
 let g:javascript_plugin_flow = 1                                            
 let g:syntatic_check_on_open = 1                                            
@@ -68,3 +71,6 @@ set completeopt-=preview
 " galooshi/vim-import-js config
 nmap <Leader>j :ImportJSWord<CR>
 nmap <Leader>i :ImportJSFix<CR>
+
+
+let g:airline_theme = 'molokai'
