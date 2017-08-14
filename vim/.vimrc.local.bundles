@@ -1,7 +1,7 @@
 Plug 'pangloss/vim-javascript'
 Plug 'leshill/vim-json'
 Plug 'Raimondi/delimitMate'
-Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic'
 Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
@@ -25,3 +25,4 @@ Plug 'galooshi/vim-import-js'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/Session-manager'
 Plug 'easymotion/vim-easymotion'
+Plug 'vim-syntastic/syntastic'
