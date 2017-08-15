@@ -1,3 +1,12 @@
+" Source the vimrc file after saving it
+if has("autocmd")
+    autocmd bufwritepost .vimrc source $MYVIMRC
+    autocmd bufwritepost .vimrc.local source $MYVIMRC
+    autocmd bufwritepost .vimrc.local.bundles source $MYVIMRC
+endif
+
+nmap <Leader>c :tabedit $MYVIMRC.local<CR>
+
 nmap <C-p> :CtrlP<CR>                                                       
 nmap <C-k><C-b> :NERDTreeToggle<CR>
 
