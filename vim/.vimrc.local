@@ -5,6 +5,7 @@ if has("autocmd")
     autocmd bufwritepost .vimrc.local.bundles source $MYVIMRC
 endif
 
+" Open .vimrc.local edit
 nmap <Leader>c :tabedit $MYVIMRC.local<CR>
 
 nmap <C-p> :CtrlP<CR>                                                       
@@ -122,7 +123,7 @@ nmap <c-E> :CtrlPMRUFiles<CR>
 let g:ctrlp_custom_ignore = 'node_modules|git'
 
 " ultiSnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<c-b>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
