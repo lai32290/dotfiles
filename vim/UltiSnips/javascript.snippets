@@ -1,3 +1,15 @@
 snippet cl "console.log()"
 console.log(${1});
 endsnippet
+
+snippet s2p "mapStateToProps"
+const ${1:mapStateToProps} = (state) => ${2:({
+	${3}
+})};
+endsnippet
+
+snippet d2p "mapDispatchToProps"
+const ${1:mapDispatchToProps} = (dispatch) => ${2:({
+	${3}
+})};
+endsnippet
