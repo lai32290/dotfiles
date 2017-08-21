@@ -1,12 +1,13 @@
 " Source the vimrc file after saving it
-if has("autocmd")
-    autocmd bufwritepost .vimrc source $MYVIMRC
-    autocmd bufwritepost .vimrc.local source $MYVIMRC
-    autocmd bufwritepost .vimrc.local.bundles source $MYVIMRC
-endif
+"if has("autocmd")
+"    autocmd bufwritepost .vimrc source $MYVIMRC
+"    autocmd bufwritepost .vimrc.local source $MYVIMRC
+"    autocmd bufwritepost .vimrc.local.bundles source $MYVIMRC
+"endif
 
 " Open .vimrc.local edit
-nmap <Leader>c :tabedit $MYVIMRC.local<CR>
+unmap <leader>c
+nmap <Leader>c :edit $MYVIMRC.local<CR>
 
 nmap <C-p> :CtrlP<CR>                                                       
 nmap <C-k><C-b> :NERDTreeToggle<CR>
@@ -86,7 +87,6 @@ nmap <Leader>j :ImportJSWord<CR>
 nmap <Leader>i :ImportJSFix<CR>
 
 
-let g:airline_theme = 'molokai'
 
 " EasyMotion
 let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
@@ -100,10 +100,6 @@ nmap <Leader>f <Plug>(easymotion-overwin-f)
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
 
-" s{char}{char} to move to {char}{char}
-nmap s <Plug>(easymotion-overwin-f)
-nmap s <Plug>(easymotion-overwin-f2)
-
 " Gif config
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
@@ -116,15 +112,12 @@ map <Leader>k <Plug>(easymotion-k)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 
-let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
-
-nmap <c-R> :CtrlPBufTag<CR>
 nmap <c-E> :CtrlPMRUFiles<CR>
 nmap <c-B> :CtrlPBuffer<CR>
 let g:ctrlp_custom_ignore = 'node_modules|git'
 
 " ultiSnips
-let g:UltiSnipsExpandTrigger="<c-b>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
 let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
