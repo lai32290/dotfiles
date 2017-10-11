@@ -5,6 +5,8 @@
 "    autocmd bufwritepost .vimrc.local.bundles source $MYVIMRC
 "endif
 
+set cursorline
+
 " Open .vimrc.local edit
 unmap <leader>c
 nmap <Leader>c :edit $MYVIMRC.local<CR>
@@ -52,19 +54,19 @@ let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
 set mouse=a
 xnoremap p pgvy
 
-function! IPhpInsertUse()
-    call PhpInsertUse()
-    call feedkeys('a',  'n')
-endfunction
-autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
-autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
-
-function! IPhpExpandClass()
-    call PhpExpandClass()
-    call feedkeys('a', 'n')
-endfunction
-autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
-autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
+"function! IPhpInsertUse()
+"    call PhpInsertUse()
+"    call feedkeys('a',  'n')
+"endfunction
+"autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
+"autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+"
+"function! IPhpExpandClass()
+"    call PhpExpandClass()
+"    call feedkeys('a', 'n')
+"endfunction
+"autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
+"autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
 
 let g:php_namespace_sort_after_insert = 1
 set tags+=tags,tags.vendors
@@ -112,14 +114,13 @@ map <Leader>k <Plug>(easymotion-k)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 
-nmap <c-E> :CtrlPMRUFiles<CR>
-nmap <c-B> :CtrlPBuffer<CR>
+nmap <c-E> :History<CR>
+nmap <c-B> :Buffers<CR>
 let g:ctrlp_custom_ignore = 'node_modules|git'
 
 " ultiSnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
+let g:UltiSnipsExpandTrigger="<c-b>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 
 nmap gt :e %:h

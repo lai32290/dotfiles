@@ -1,4 +1,4 @@
-Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript', { 'for': 'php' }
 Plug 'leshill/vim-json'
 Plug 'Raimondi/delimitMate'
 " Plug 'scrooloose/syntastic'
@@ -29,3 +29,4 @@ Plug 'vim-syntastic/syntastic'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'jremmen/vim-ripgrep'
+Plug 'seeamkhan/robotframework-vim'
