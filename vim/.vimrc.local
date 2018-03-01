@@ -124,3 +124,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 
 nmap gt :e %:h
+
+
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
