@@ -134,3 +134,5 @@ nmap <silent> t<C-f> :TestFile<CR>
 nmap <silent> t<C-s> :TestSuite<CR>
 
 nmap tt :b#<CR>
+
+imap jk <Esc>
