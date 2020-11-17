@@ -1,3 +1,4 @@
+set encoding=utf-8
 set hidden
 set ignorecase
 set showcmd
@@ -11,6 +12,8 @@ set shiftwidth=4
 set expandtab
 
 imap jk <ESC>
+imap <c-x> <ESC>:w<CR>
+nmap <c-x> <ESC>:w<CR>
 nmap <leader><space> :noh<CR>
 nmap gn :bn<CR>
 nmap gp :bp<CR>
@@ -33,6 +36,7 @@ endif
 let g:deoplete#enable_at_startup = 1
 " deoplete
 
+Plug 'editorconfig/editorconfig-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -43,6 +47,7 @@ Plug 'mattn/emmet-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'SirVer/ultisnips'
 
 " Themes
 Plug 'dracula/vim', { 'as': 'dracula' }
@@ -83,3 +88,16 @@ let g:airline#extensions#tabline#enabled = 1
 nmap <C-K><C-B> :NERDTreeToggle<CR>
 " Depends on NERDTree
 
+" Depends on UltiSnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-l>"
+let g:UltiSnipsJumpBackwardTrigger="<c-h>"                                    
+" Depends on UltiSnips
+
+" Depends on Emment
+let g:user_emmet_settings = {
+\   'typescript': {
+\     'extends': 'jsx'
+\   }
+\ }
+" Depends on Emment
