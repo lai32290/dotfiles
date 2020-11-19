@@ -25,16 +25,37 @@ nmap <leader><leader>ev :e $MYVIMRC<CR>
 " ==================================================
 
 call plug#begin()
-" deoplete
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
-" deoplete
+"" deoplete
+"if has('nvim')
+"  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"  Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+"else
+"  Plug 'Shougo/deoplete.nvim'
+"  Plug 'Shougo/denite.nvim'
+"  Plug 'roxma/nvim-yarp'
+"  Plug 'roxma/vim-hug-neovim-rpc'
+"endif
+"Plug 'HerringtonDarkholme/yats.vim'
+"Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+"let g:deoplete#enable_at_startup = 1
+"" deoplete
+
+" coc
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+let g:coc_global_extensions = [
+\    'coc-json',
+\    'coc-git',
+\    'coc-tsserver',
+\    'coc-css',
+"\    'coc-graphql',
+\    'coc-ultisnips',
+\    'coc-html',
+\    'coc-python',
+\    'coc-svg',
+\    'coc-xml',
+\    'coc-yaml'
+\]
+" coc
 
 Plug 'editorconfig/editorconfig-vim'
 Plug 'jiangmiao/auto-pairs'
