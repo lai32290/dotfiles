@@ -5,6 +5,7 @@ set showcmd
 set relativenumber
 set mouse=a
 let mapleader = ","
+highlight LineNr ctermfg=grey
 
 autocmd Filetype css setlocal tabstop=4
 set tabstop=4
@@ -47,19 +48,28 @@ let g:coc_global_extensions = [
 \    'coc-git',
 \    'coc-tsserver',
 \    'coc-css',
-"\    'coc-graphql',
 \    'coc-ultisnips',
 \    'coc-html',
 \    'coc-python',
 \    'coc-svg',
 \    'coc-xml',
-\    'coc-yaml'
+\    'coc-yaml',
+\    'coc-vimlsp'
 \]
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Add `:Format` command to format current buffer
+command! -nargs=0 Format :call CocAction('format')
 " coc
 
 Plug 'editorconfig/editorconfig-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdtree'
+" Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
@@ -85,7 +95,7 @@ colorscheme dracula
 " Depends on FZF
 let $FZF_DEFAULT_COMMAND = "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
 nmap <leader>e :Files<CR>
-nmap <leader>b :Buffers!<CR>
+nmap <leader>b :Buffers<CR>
 nmap <leader>m :Marks<CR>
 nmap <C-F> :Ag 
 " Depends on FZF
@@ -122,3 +132,8 @@ let g:user_emmet_settings = {
 \   }
 \ }
 " Depends on Emment
+
+function! LXSpreadCommanToLines()
+    call feedkeys('c')
+    call feedkeys('<ENTER>')
+endfunction
