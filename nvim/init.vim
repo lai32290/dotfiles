@@ -5,9 +5,9 @@ set showcmd
 set relativenumber
 set mouse=a
 let mapleader = ","
-highlight LineNr ctermfg=grey
 
 autocmd Filetype css setlocal tabstop=4
+autocmd Filetype dart setlocal shiftwidth=2
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -54,7 +54,8 @@ let g:coc_global_extensions = [
 \    'coc-svg',
 \    'coc-xml',
 \    'coc-yaml',
-\    'coc-vimlsp'
+\    'coc-vimlsp',
+\    'coc-flutter'
 \]
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
@@ -78,7 +79,11 @@ Plug 'mattn/emmet-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'leafgarland/typescript-vim'
 Plug 'SirVer/ultisnips'
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'tiagofumo/dart-vim-flutter-layout'
+Plug 'thosakwe/vim-flutter'
 
 " Themes
 Plug 'dracula/vim', { 'as': 'dracula' }
@@ -92,6 +97,7 @@ call plug#end()
 colorscheme dracula
 " Depends on Dracula
 
+highlight LineNr ctermfg=grey
 " Depends on FZF
 let $FZF_DEFAULT_COMMAND = "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
 nmap <leader>e :Files<CR>
@@ -137,3 +143,12 @@ function! LXSpreadCommanToLines()
     call feedkeys('c')
     call feedkeys('<ENTER>')
 endfunction
+
+" Depends on thosakwe/vim-flutter
+nnoremap <leader>fh :FlutterHotReload<cr>
+nnoremap <leader>fr :FlutterHotRestart<cr>
+" Depends on thosakwe/vim-flutter
+
+" Depends on vim-jsx-typescript
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
+" Depends on vim-jsx-typescript
