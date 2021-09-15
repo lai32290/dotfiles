@@ -87,3 +87,28 @@ source $ZSH/oh-my-zsh.sh
 if [ -f $HOME/.profile-zshrc ]; then
     source $HOME/.profile-zshrc;
 fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export ZSHRC="~/.zshrc"
+export LC_ALL=en_US.UTF-8
+export LANG="UTF-8"
+
+export PATH=~/Library/Android/sdk/platform-tools:$PATH
+
+export EDITOR=/usr/local/bin/nvim
+
+alias g="git"
+
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+#export PATH=$PATH:$ANDROID_HOME/platform-tools
+export ANDROID_SDK_ROOT=$ANDROID_HOME/platform-tools
+
+export PATH="$PATH:/Users/lai/.local/bin"
+export PATH="$PATH:/opt/flutter/bin"
+export PATH="$PATH:$HOME/.pub-cache/bin"

@@ -1,0 +1,18 @@
+[alias]
+    ck = checkout
+    cim = commit -m 
+    st = status
+    d = diff
+[core]
+	excludesfile = /Users/lai/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[user]
+	name = Lai
+	email = lai@caju.com.br
+[commit]
+	template = /Users/lai/.stCommitMsg
