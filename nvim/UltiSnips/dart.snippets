@@ -1,22 +1,38 @@
 snippet stful
 class $1 extends StatefulWidget {
-	@override
-	_$1State createState() => _$1State();
+  @override
+  _$1State createState() => _$1State();
 }
 
 class _$1State extends State<$1> {
-	@override
-	Widget build(BuildContext context) {
-		return Container();
-	}
+  @override
+  Widget build(BuildContext context) {
+	  return Container();
+  }
 }
 endsnippet
 
 snippet stless
 class $1 extends StatelessWidget {
-	@override
-	Widget build(BuildContext context) {
+  @override
+  Widget build(BuildContext context) {
 	  return Container();
-	}
+  }
+}
+endsnippet
+
+snippet iState
+@override
+void initState() {
+  super.initState();
+  $1
+}
+endsnippet
+
+snippet dpose
+@override
+dispose() {
+  $1
+  super.dispose();
 }
 endsnippet

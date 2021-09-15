@@ -4,6 +4,7 @@ set ignorecase
 set showcmd
 set relativenumber
 set mouse=a
+set includeexpr=substitute(v:fname,'\\~/','./src/','')
 let mapleader = ","
 
 autocmd Filetype css setlocal tabstop=4
@@ -89,6 +90,7 @@ Plug 'thosakwe/vim-flutter'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 call plug#end()
 
 " ==================================================
@@ -152,3 +154,15 @@ nnoremap <leader>fr :FlutterHotRestart<cr>
 " Depends on vim-jsx-typescript
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 " Depends on vim-jsx-typescript
+
+" Depends on coc
+inoremap <silent><expr> <c-l> coc#refresh()
+" Depends on coc
+
+" Depends on prettier/vim-prettier
+nmap <Leader>py <Plug>(Prettier)
+" Depends on prettier/vim-prettier
+
+function! LXOpenSelectionFile()
+    echo getline(getpos("'<"))
+endfunction
