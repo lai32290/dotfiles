@@ -1,0 +1,6 @@
+[user]
+    name = Lai
+    email = lai32690@gmail.com
+
+[core]
+    sshCommand = ssh -i ~/.ssh/lai32690

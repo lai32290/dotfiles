@@ -16,3 +16,6 @@
 	email = lai@caju.com.br
 [commit]
 	template = /Users/lai/.stCommitMsg
+
+[includeIf "gitdir:~/Documents/Projects/Personal/"]
+    path = .gitconfig_lai32290

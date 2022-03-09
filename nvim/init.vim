@@ -1,11 +1,12 @@
-set encoding=utf-8
+" set encoding=utf-8
+" set fileencodings=utf-8
 set hidden
 set ignorecase
 set showcmd
 set relativenumber
 set mouse=a
 set includeexpr=substitute(v:fname,'\\~/','./src/','')
-let mapleader = ","
+" let mapleader = ","
 
 autocmd Filetype css setlocal tabstop=4
 autocmd Filetype dart setlocal shiftwidth=2
@@ -13,16 +14,16 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
-imap jk <ESC>
-imap <c-x> <ESC>:w<CR>
-nmap <c-x> <ESC>:w<CR>
-nmap <leader><space> :noh<CR>
-nmap gn :bn<CR>
-nmap gp :bp<CR>
-nmap gd :bd<CR>
+"imap jk <ESC>
+"imap <c-x> <ESC>:w<CR>
+"nmap <c-x> <ESC>:w<CR>
+"nmap <leader><space> :noh<CR>
+"nmap gn :bn<CR>
+"nmap gp :bp<CR>
+"nmap gd :bd<CR>
 
-nmap <leader><leader>s :source $MYVIMRC<CR>
-nmap <leader><leader>ev :e $MYVIMRC<CR>
+"nmap <leader><leader>s :source $MYVIMRC<CR>
+"nmap <leader><leader>ev :e $MYVIMRC<CR>
 
 " ==================================================
 
@@ -56,7 +57,8 @@ let g:coc_global_extensions = [
 \    'coc-xml',
 \    'coc-yaml',
 \    'coc-vimlsp',
-\    'coc-flutter'
+\    'coc-flutter',
+\    'coc-lua'
 \]
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
@@ -91,6 +93,8 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'posva/vim-vue'
+Plug 'github/copilot.vim'
 call plug#end()
 
 " ==================================================
@@ -102,17 +106,17 @@ colorscheme dracula
 highlight LineNr ctermfg=grey
 " Depends on FZF
 let $FZF_DEFAULT_COMMAND = "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
-nmap <leader>e :Files<CR>
-nmap <leader>b :Buffers<CR>
-nmap <leader>m :Marks<CR>
-nmap <C-F> :Ag 
+" nmap <leader>e :Files<CR>
+" nmap <leader>b :Buffers<CR>
+" nmap <leader>m :Marks<CR>
+" nmap <C-F> :Ag 
 " Depends on FZF
 
 " Depends on Git
 set diffopt+=vertical
-nmap <leader>ga :Git add %<CR>
-nmap <leader>gd :Gdiffsplit %<CR>
-nmap <leader>gb :Git blame<CR>
+" nmap <leader>ga :Git add %<CR>
+" nmap <leader>gd :Gdiffsplit %<CR>
+" nmap <leader>gb :Git blame<CR>
 " Depends on Git
 
 " Depends on Vim Airline
@@ -124,13 +128,13 @@ let g:airline#extensions#tabline#enabled = 1
 " Depends on Vim Airline
 
 " Depends on NERDTree
-nmap <C-K><C-B> :NERDTreeToggle<CR>
+" nmap <C-K><C-B> :NERDTreeToggle<CR>
 " Depends on NERDTree
 
 " Depends on UltiSnips
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-l>"
-let g:UltiSnipsJumpBackwardTrigger="<c-h>"                                    
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 " Depends on UltiSnips
 
 " Depends on Emment
@@ -160,9 +164,15 @@ inoremap <silent><expr> <c-l> coc#refresh()
 " Depends on coc
 
 " Depends on prettier/vim-prettier
-nmap <Leader>py <Plug>(Prettier)
+" nmap <Leader>py <Plug>(Prettier)
 " Depends on prettier/vim-prettier
 
-function! LXOpenSelectionFile()
-    echo getline(getpos("'<"))
-endfunction
+" Copy file path
+"nmap <Leader>cp :let @+ = expand("%")<cr>
+
+command! Scratch lua require'tools'.makeScratch()
+command! CajuID lua require'caju'.extractId()
+
+lua << EOF
+    require('init')
+EOF
